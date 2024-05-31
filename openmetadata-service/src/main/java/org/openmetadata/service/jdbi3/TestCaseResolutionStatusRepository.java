@@ -98,9 +98,9 @@ public class TestCaseResolutionStatusRepository
 
     for (PropertyDescriptor propertyDescriptor : beanInfo.getPropertyDescriptors()) {
       String propertyName = propertyDescriptor.getName();
-      if ((!propertyName.equals("updatedBy"))
-          && (!propertyName.equals("updatedAt"))
-          && (!propertyName.equals("severity"))) {
+      if ((!"updatedBy".equals(propertyName))
+          && (!"updatedAt".equals(propertyName))
+          && (!"severity".equals(propertyName))) {
         Object originalValue = propertyDescriptor.getReadMethod().invoke(original);
         Object updatedValue = propertyDescriptor.getReadMethod().invoke(updated);
         if (originalValue != null && !originalValue.equals(updatedValue)) {

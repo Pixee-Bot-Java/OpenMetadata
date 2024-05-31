@@ -488,7 +488,7 @@ public class AlertsRuleEvaluator {
       return false;
     }
 
-    if (usersOrTeamName.size() == 1 && usersOrTeamName.get(0).equals("all")) {
+    if (usersOrTeamName.size() == 1 && "all".equals(usersOrTeamName.get(0))) {
       return true;
     }
 

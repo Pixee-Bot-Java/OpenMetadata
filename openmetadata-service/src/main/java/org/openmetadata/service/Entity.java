@@ -531,7 +531,7 @@ public final class Entity {
         return Collections.emptyList();
       }
       entitiesParam = entitiesParam.replace(" ", "");
-      if (entitiesParam.equals("*")) {
+      if ("*".equals(entitiesParam)) {
         return List.of("*");
       }
       List<String> list = Arrays.asList(entitiesParam.split(","));

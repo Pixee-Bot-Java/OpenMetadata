@@ -15,7 +15,7 @@ public class ParseTags {
       List<TagLabel> tagsList = new ArrayList<>(tags);
       for (TagLabel tag : tagsList) {
         String tier = tag.getTagFQN().split("\\.")[0];
-        if (tier.equalsIgnoreCase("tier")) {
+        if ("tier".equalsIgnoreCase(tier)) {
           tierTag = tag;
           break;
         }

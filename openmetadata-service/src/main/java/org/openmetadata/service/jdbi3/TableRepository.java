@@ -454,9 +454,9 @@ public class TableRepository extends EntityRepository<Table> {
     String extension;
     if (entityType.equalsIgnoreCase(Entity.TABLE)) {
       extension = TABLE_PROFILE_EXTENSION;
-    } else if (entityType.equalsIgnoreCase("column")) {
+    } else if ("column".equalsIgnoreCase(entityType)) {
       extension = TABLE_COLUMN_PROFILE_EXTENSION;
-    } else if (entityType.equalsIgnoreCase("system")) {
+    } else if ("system".equalsIgnoreCase(entityType)) {
       extension = SYSTEM_PROFILE_EXTENSION;
     } else {
       throw new IllegalArgumentException("entityType must be table, column or system");

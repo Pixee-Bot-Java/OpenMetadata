@@ -29,7 +29,7 @@ public class TestCaseResultFormatter extends DefaultFieldFormatter {
   @Override
   public String formatAddedField() {
     String message;
-    if (fieldChangeName.equals(TEST_RESULT_FIELD)) {
+    if (TEST_RESULT_FIELD.equals(fieldChangeName)) {
       message = transformTestCaseResult(messageDecorator, thread, fieldChange);
     } else {
       message = super.formatAddedField();
@@ -42,7 +42,7 @@ public class TestCaseResultFormatter extends DefaultFieldFormatter {
   @Override
   public String formatUpdatedField() {
     String message;
-    if (fieldChangeName.equals(TEST_RESULT_FIELD)) {
+    if (TEST_RESULT_FIELD.equals(fieldChangeName)) {
       message = transformTestCaseResult(messageDecorator, thread, fieldChange);
     } else {
       message = super.formatUpdatedField();

@@ -3325,7 +3325,7 @@ public interface CollectionDAO {
       if (nullOrEmpty(entityTypes)) {
         return Collections.emptyList();
       }
-      if (entityTypes.get(0).equals("*")) {
+      if ("*".equals(entityTypes.get(0))) {
         return listWithoutEntityFilter(eventType.value(), timestamp);
       }
       return listWithEntityFilter(eventType.value(), entityTypes, timestamp);

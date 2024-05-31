@@ -85,7 +85,7 @@ public interface EntityDAO<T extends EntityInterface> {
 
   default void updateFqn(String oldPrefix, String newPrefix) {
     LOG.info("Updating FQN for {} from {} to {}", getTableName(), oldPrefix, newPrefix);
-    if (!getNameHashColumn().equals("fqnHash")) {
+    if (!"fqnHash".equals(getNameHashColumn())) {
       return;
     }
     String mySqlUpdate =
