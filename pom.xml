@@ -153,7 +153,8 @@
     <picocli.version>4.7.5</picocli.version>
     <logback-core.version>1.2.13</logback-core.version>
     <logback-classic.version>1.2.13</logback-classic.version>
-  </properties>
+  <versions.java-security-toolkit>1.2.0</versions.java-security-toolkit>
+ </properties>
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -543,7 +544,13 @@
       </dependency>
 
       <!-- avoid security issue https://security.snyk.io/vuln/SNYK-JAVA-ORGYAML-2806360 -->
-    </dependencies>
+   <dependency>
+    <groupId>io.github.pixee</groupId>
+    <artifactId>java-security-toolkit</artifactId>
+    
+    <version>${versions.java-security-toolkit}</version>
+   </dependency>
+  </dependencies>
   </dependencyManagement>
 
   <repositories>

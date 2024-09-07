@@ -13,6 +13,8 @@
 
 package org.openmetadata.sdk;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import io.github.resilience4j.retry.Retry;
 import io.github.resilience4j.retry.RetryConfig;
 import java.io.IOException;
@@ -120,7 +122,7 @@ public abstract class PipelineServiceClient {
 
   public final URL validateServiceURL(String serviceURL) {
     try {
-      return new URL(serviceURL);
+      return Urls.create(serviceURL, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
     } catch (MalformedURLException e) {
       throw new PipelineServiceClientException(serviceURL + " Malformed.");
     }
