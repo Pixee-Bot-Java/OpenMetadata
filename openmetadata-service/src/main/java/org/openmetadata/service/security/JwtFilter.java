@@ -13,6 +13,8 @@
 
 package org.openmetadata.service.security;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import static org.openmetadata.common.utils.CommonUtil.nullOrEmpty;
 import static org.openmetadata.service.security.jwt.JWTTokenGenerator.ROLES_CLAIM;
 import static org.openmetadata.service.security.jwt.JWTTokenGenerator.TOKEN_TYPE;
@@ -94,12 +96,12 @@ public class JwtFilter implements ContainerRequestFilter {
 
     ImmutableList.Builder<URL> publicKeyUrlsBuilder = ImmutableList.builder();
     for (String publicKeyUrlStr : authenticationConfiguration.getPublicKeyUrls()) {
-      publicKeyUrlsBuilder.add(new URL(publicKeyUrlStr));
+      publicKeyUrlsBuilder.add(Urls.create(publicKeyUrlStr, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS));
     }
     // avoid users misconfiguration and add default publicKeyUrls
     for (String publicKeyUrl : DEFAULT_PUBLIC_KEY_URLS) {
       if (!authenticationConfiguration.getPublicKeyUrls().contains(publicKeyUrl)) {
-        publicKeyUrlsBuilder.add(new URL(publicKeyUrl));
+        publicKeyUrlsBuilder.add(Urls.create(publicKeyUrl, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS));
       }
     }
 
